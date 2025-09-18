@@ -7,6 +7,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Profile from "./Profile";
 import MainPage from "./MainPage";
+import Song from "./Song";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -16,6 +17,7 @@ function DrawerRoutes() {
     <Drawer.Navigator initialRouteName="MainPage">
       <Drawer.Screen name="MainPage" component={MainPage} />
       <Drawer.Screen name="Profile" component={Profile} />
+      <Drawer.Screen name="Song" component={Song} />
     </Drawer.Navigator>
   );
 }

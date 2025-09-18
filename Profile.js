@@ -95,11 +95,13 @@ export default function Profile() {
           {/* CHANGE: wrap input in Animated.View to shake only on error */}
           <Animated.View style={{ transform: [{ translateX: shakeName }], width: 250, left: 25 }}>
             <TextInput
-              style={styles.input}
+              style={[
+                styles.input,
+                error.name ? { borderColor: "red", borderWidth: 2 } : {}
+              ]}
               value={name}
               onChangeText={text => {
                 setName(text);
-                // optional: clear error while typing
                 setError(prev => ({ ...prev, name: "" }));
               }}
               placeholder="Enter your name"
@@ -108,9 +110,12 @@ export default function Profile() {
           </Animated.View>
           {error.name ? <Text style={styles.errorText}>{error.name}</Text> : null}
 
-          <Animated.View style={{ transform: [{ translateX: shakeName }], width: 250, left: 25 }}>
+          <Animated.View style={{ transform: [{ translateX: shakeEmail }], width: 250, left: 25 }}>
             <TextInput
-              style={styles.input}
+              style={[
+                styles.input,
+                error.email ? { borderColor: "red", borderWidth: 2 } : {}
+              ]}
               value={email}
               onChangeText={text => {
                 setEmail(text);

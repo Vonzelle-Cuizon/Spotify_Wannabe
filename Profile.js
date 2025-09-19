@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function Profile() {
+export default function Profile({ navigation }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isEditing, setIsEditing] = useState(false);
@@ -144,6 +144,16 @@ export default function Profile() {
           {isEditing ? "Save" : "Edit Profile"}
         </Text>
       </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.editButton}
+        onPress={() => navigation.navigate('MainPage')}
+        activeOpacity={0.8}
+      >
+        <Text style={styles.editButtonText}>
+          To Main Page
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -180,6 +190,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 30,
     borderRadius: 25,
+    width: 200,
+    alignItems: "center",
+    marginTop: 10,
   },
   editButtonText: {
     color: "#191414",
